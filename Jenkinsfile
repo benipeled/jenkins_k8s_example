@@ -11,7 +11,7 @@ pipeline {
             script {
             echo 'Deploying to k8s cluster'
               try {
-                  sh "kubectl get nodes"
+                  sh "kubectl apply -f k8s/httpd.yaml"
                   currentBuild.result = 'SUCCESS'
                 } catch (Exception e) {
                     echo 'Exception occurred: ' + e.toString()
